@@ -1,11 +1,16 @@
 using System;
+using System.Drawing;
 
-namespace LoftGuide
+using MonoTouch.UIKit;
+using MonoTouch.Foundation;
+
+namespace LoftGuide.ExibitInfoScreen
 {
-	public class ExibitInfoView
+	public class ExibitInfoView : UIView
 	{
 		public ExibitInfoView()
 		{
+			BackgroundColor = UIColor.White;
 		}
 	}
 }
