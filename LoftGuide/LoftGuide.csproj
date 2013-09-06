@@ -89,6 +89,8 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Resources\" />
+    <Folder Include="Screens\" />
+    <Folder Include="Screens\ExibitInfo\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Info.plist" />
@@ -96,6 +98,8 @@
   <ItemGroup>
     <Compile Include="Main.cs" />
     <Compile Include="AppDelegate.cs" />
+    <Compile Include="Screens\ExibitInfo\ExibitInfoView.cs" />
+    <Compile Include="Screens\ExibitInfo\ExibitInfoViewController.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
 </Project>
