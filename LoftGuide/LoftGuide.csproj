@@ -91,6 +91,10 @@
     <Folder Include="Resources\" />
     <Folder Include="Screens\" />
     <Folder Include="Screens\ExibitInfo\" />
+    <Folder Include="Resources\ContentImages\" />
+    <Folder Include="Resources\ExibitInfos\" />
+    <Folder Include="Resources\ExibitInfos\img\" />
+    <Folder Include="Resources\ExibitInfos\css\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Info.plist" />
@@ -100,6 +104,12 @@
     <Compile Include="AppDelegate.cs" />
     <Compile Include="Screens\ExibitInfo\ExibitInfoView.cs" />
     <Compile Include="Screens\ExibitInfo\ExibitInfoViewController.cs" />
+    <Compile Include="Screens\ExibitInfo\WebViewDelegate.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <ItemGroup>
+    <BundleResource Include="Resources\ExibitInfos\img\bfbe9f71769a.jpg" />
+    <BundleResource Include="Resources\ExibitInfos\LaJoconde.html" />
+    <BundleResource Include="Resources\ExibitInfos\css\style.css" />
+  </ItemGroup>
 </Project>

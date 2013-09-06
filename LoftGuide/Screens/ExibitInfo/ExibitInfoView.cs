@@ -1,4 +1,5 @@
 using System;
+using System.IO;
 using System.Drawing;
 
 using MonoTouch.UIKit;
@@ -12,13 +13,19 @@ namespace LoftGuide.ExibitInfoScreen
 		private static readonly RectangleF NavbarFrame = new RectangleF(0f, 0f, 320f, 45f);
 		private UINavigationItem _backNavItem;
 
+		private UIWebView _contentDisplayer;
+		private static readonly RectangleF ContentDisplayerFrame = new RectangleF(0f, NavbarFrame.Height, 320f, 460f - NavbarFrame.Height);
+		private WebViewDelegate _webDelegate;
+
 		public ExibitInfoView()
 		{
 			BackgroundColor = UIColor.White;
 
 			InitNavBar();
+			InitContentDisplayer();
 
 			AddSubview(_navBar);
+			AddSubview(_contentDisplayer);
 		}
 
 		private void InitNavBar()
@@ -38,6 +45,28 @@ namespace LoftGuide.ExibitInfoScreen
 		private void OnBackPressed(object sender, EventArgs e)
 		{
 
+		}
+
+		private void InitContentDisplayer()
+		{
+			_contentDisplayer = new UIWebView();
+			_contentDisplayer.Frame = ContentDisplayerFrame;
+			_contentDisplayer.ClipsToBounds = true;
+			_contentDisplayer.BackgroundColor = UIColor.Clear;
+
+			_webDelegate = new WebViewDelegate();
+			_contentDisplayer.Delegate = _webDelegate;
+
+			LoadExibitInfoFromFile("ExibitInfos/LaJoconde.html");
+		}
+
+		private void LoadExibitInfoFromFile(string path)
+		{
+			string htmlContent = File.ReadAllText(path);
+			string dir = Path.GetDirectoryName(path);
+
+			NSUrl dirUrl = new NSUrl(dir, true);
+			_contentDisplayer.LoadHtmlString(htmlContent, dirUrl);
 		}
 	}
 }
