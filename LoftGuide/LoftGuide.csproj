@@ -95,6 +95,7 @@
     <Folder Include="Resources\ExibitInfos\" />
     <Folder Include="Resources\ExibitInfos\img\" />
     <Folder Include="Resources\ExibitInfos\css\" />
+    <Folder Include="ScreenControllers\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Info.plist" />
@@ -105,6 +106,7 @@
     <Compile Include="Screens\ExibitInfo\ExibitInfoView.cs" />
     <Compile Include="Screens\ExibitInfo\ExibitInfoViewController.cs" />
     <Compile Include="Screens\ExibitInfo\WebViewDelegate.cs" />
+    <Compile Include="ScreenControllers\ExibitInfoController.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>

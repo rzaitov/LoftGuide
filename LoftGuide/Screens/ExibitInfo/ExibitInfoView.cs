@@ -17,8 +17,12 @@ namespace LoftGuide.ExibitInfoScreen
 		private static readonly RectangleF ContentDisplayerFrame = new RectangleF(0f, NavbarFrame.Height, 320f, 460f - NavbarFrame.Height);
 		private WebViewDelegate _webDelegate;
 
-		public ExibitInfoView()
+		private ExibitInfoController _controller;
+
+		public ExibitInfoView(ExibitInfoController controller)
 		{
+			_controller = controller;
+
 			BackgroundColor = UIColor.White;
 
 			InitNavBar();
@@ -44,7 +48,8 @@ namespace LoftGuide.ExibitInfoScreen
 
 		private void OnBackPressed(object sender, EventArgs e)
 		{
-
+			// Приведет к отображению экрана сканирования баркода
+			_controller.ScanAnotherCode();
 		}
 
 		private void InitContentDisplayer()
