@@ -113,6 +113,7 @@
     <Compile Include="Screens\ExibitInfo\ExibitInfoViewController.cs" />
     <Compile Include="Screens\ExibitInfo\WebViewDelegate.cs" />
     <Compile Include="ScreenControllers\ExibitInfoController.cs" />
+    <Compile Include="Screens\MainViewController.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
