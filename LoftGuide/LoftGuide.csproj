@@ -102,6 +102,7 @@
     <Folder Include="Resources\ExibitInfos\img\" />
     <Folder Include="Resources\ExibitInfos\css\" />
     <Folder Include="ScreenControllers\" />
+    <Folder Include="Screens\StartScreen\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Info.plist" />
@@ -114,6 +115,8 @@
     <Compile Include="Screens\ExibitInfo\WebViewDelegate.cs" />
     <Compile Include="ScreenControllers\ExibitInfoController.cs" />
     <Compile Include="Screens\MainViewController.cs" />
+    <Compile Include="Screens\StartScreen\StartScreenView.cs" />
+    <Compile Include="Screens\StartScreen\StartScreenViewController.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
