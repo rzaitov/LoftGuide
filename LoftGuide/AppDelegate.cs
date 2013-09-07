@@ -6,8 +6,8 @@ using MonoTouch.Foundation;
 using MonoTouch.UIKit;
 
 using LoftGuide.Touch.Common;
-using LoftGuide.ExibitInfoScreen;
-using LoftGuide.Touch.Screens.StartScreen;
+using LoftGuide.Screens.ExibitInfoScreen;
+using LoftGuide.Screens.StartScreen;
 
 namespace LoftGuide
 {

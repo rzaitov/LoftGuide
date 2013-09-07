@@ -1,6 +1,6 @@
 using System;
 
-namespace LoftGuide
+namespace LoftGuide.Screens.StartScreen
 {
 	public class StartScreenController
 	{

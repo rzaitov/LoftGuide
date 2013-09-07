@@ -6,7 +6,7 @@ using MonoTouch.Foundation;
 
 using LoftGuide.Touch.Common;
 
-namespace LoftGuide.Touch.Screens.StartScreen
+namespace LoftGuide.Screens.StartScreen
 {
 	public class StartScreenViewController : UIViewController
 	{

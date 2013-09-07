@@ -3,7 +3,7 @@ using System;
 using MonoTouch.UIKit;
 using MonoTouch.Foundation;
 
-namespace LoftGuide.ExibitInfoScreen
+namespace LoftGuide.Screens.ExibitInfoScreen
 {
 	public class WebViewDelegate : UIWebViewDelegate
 	{

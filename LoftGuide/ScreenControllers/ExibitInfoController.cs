@@ -1,6 +1,6 @@
 using System;
 
-namespace LoftGuide
+namespace LoftGuide.Screens.ExibitInfoScreen
 {
 	public class ExibitInfoController
 	{

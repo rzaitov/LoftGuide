@@ -5,7 +5,7 @@ using MonoTouch.UIKit;
 
 using LoftGuide.Touch.Common;
 
-namespace LoftGuide.Touch.Screens.StartScreen
+namespace LoftGuide.Screens.StartScreen
 {
 	public class StartScreenView : UIView
 	{
