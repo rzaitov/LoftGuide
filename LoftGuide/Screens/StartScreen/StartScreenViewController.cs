@@ -20,10 +20,14 @@ namespace LoftGuide.Touch.Screens.StartScreen
 		public override void ViewDidLoad()
 		{
 			base.ViewDidLoad();
+			View.Frame = DefaultFrames.MainFrame;
+			View.BackgroundColor = UIColor.White;
 
 			_view = new StartScreenView();
 			_view.ClipsToBounds = true;
 			_view.Frame = DefaultFrames.MainFrame;
+
+			View.AddSubview(_view);
 		}
 	}
 }
