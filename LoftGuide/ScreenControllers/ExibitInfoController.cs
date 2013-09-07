@@ -1,8 +1,10 @@
 using System;
 
+using LoftGuide.Screens;
+
 namespace LoftGuide.Screens.ExibitInfoScreen
 {
-	public class ExibitInfoController
+	public class ExibitInfoController : ScreenControllerBase
 	{
 		public event Action ShowScanScreen;
 
@@ -14,14 +16,6 @@ namespace LoftGuide.Screens.ExibitInfoScreen
 		public void ScanAnotherCode()
 		{
 			TryRaiseEvent(ShowScanScreen);
-		}
-
-		private void TryRaiseEvent(Action eventHandler)
-		{
-			if(eventHandler != null)
-			{
-				eventHandler();
-			}
 		}
 	}
 }
