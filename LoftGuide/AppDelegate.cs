@@ -15,9 +15,11 @@ namespace LoftGuide
 	public partial class AppDelegate : UIApplicationDelegate
 	{
 		private UIWindow window;
-		private ExibitInfoViewController _controller;
-		private StartScreenViewController _startScreenViewController;
 
+		private ExibitInfoViewController _controller;
+
+		private StartScreenViewController _startScreenViewController;
+		private StartScreenController _startScreenController;
 
 		public override bool FinishedLaunching(UIApplication app, NSDictionary options)
 		{
@@ -25,7 +27,9 @@ namespace LoftGuide
 
 			window = new UIWindow(UIScreen.MainScreen.Bounds);
 			_controller = new ExibitInfoViewController();
-			_startScreenViewController = new StartScreenViewController();
+
+			_startScreenController = new StartScreenController();
+			_startScreenViewController = new StartScreenViewController(_startScreenController);
 
 			//window.RootViewController = _controller;
 			window.RootViewController = _startScreenViewController;

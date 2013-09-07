@@ -11,10 +11,11 @@ namespace LoftGuide.Screens.StartScreen
 	public class StartScreenViewController : UIViewController
 	{
 		private StartScreenView _view;
+		private StartScreenController _controller;
 
-		public StartScreenViewController()
+		public StartScreenViewController(StartScreenController controller)
 		{
-
+			_controller = controller;
 		}
 
 		public override void ViewDidLoad()
@@ -23,7 +24,7 @@ namespace LoftGuide.Screens.StartScreen
 			View.Frame = DefaultFrames.MainFrame;
 			View.BackgroundColor = UIColor.White;
 
-			_view = new StartScreenView(DefaultFrames.MainFrame);
+			_view = new StartScreenView(_controller, DefaultFrames.MainFrame);
 			_view.ClipsToBounds = true;
 
 			View.AddSubview(_view);

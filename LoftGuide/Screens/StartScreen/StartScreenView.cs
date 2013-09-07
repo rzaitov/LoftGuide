@@ -13,8 +13,12 @@ namespace LoftGuide.Screens.StartScreen
 		private static readonly float StartScanLocationY = 30f;
 		private static readonly SizeF StartScanSize = new SizeF(150f, 35f);
 
-		public StartScreenView(RectangleF frame)
+		private StartScreenController _controller;
+
+		public StartScreenView(StartScreenController controller, RectangleF frame)
 		{
+			_controller = controller;
+
 			Frame = frame;
 			BackgroundColor = UIColor.Yellow;
 			InitStartScanButton();
@@ -35,7 +39,7 @@ namespace LoftGuide.Screens.StartScreen
 
 		void OnStarPressed (object sender, EventArgs e)
 		{
-
+			_controller.StartScanPressed();
 		}
 	}
 }
