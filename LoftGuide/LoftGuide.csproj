@@ -121,6 +121,7 @@
     <Compile Include="Common\DefaultFrames.cs" />
     <Compile Include="Common\Device.cs" />
     <Compile Include="Common\FrameExtensions.cs" />
+    <Compile Include="ScreenControllers\StartScreenController.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
