@@ -3,15 +3,19 @@ using System.Drawing;
 
 using MonoTouch.UIKit;
 
+using LoftGuide.Touch.Common;
+
 namespace LoftGuide.Touch.Screens.StartScreen
 {
 	public class StartScreenView : UIView
 	{
 		private UIButton _startScan;
-		private static readonly RectangleF StartScanFrame = new RectangleF(0f, 0f, 150f, 35f);
+		private static readonly float StartScanLocationY = 30f;
+		private static readonly SizeF StartScanSize = new SizeF(150f, 35f);
 
-		public StartScreenView()
+		public StartScreenView(RectangleF frame)
 		{
+			Frame = frame;
 			BackgroundColor = UIColor.Yellow;
 			InitStartScanButton();
 
@@ -21,7 +25,10 @@ namespace LoftGuide.Touch.Screens.StartScreen
 		private void InitStartScanButton()
 		{
 			_startScan = new UIButton(UIButtonType.RoundedRect);
-			_startScan.Frame = StartScanFrame;
+			_startScan.SetSize(StartScanSize);
+			_startScan.CenterHorizontally(this);
+			_startScan.SetFrameY(StartScanLocationY);
+
 			_startScan.SetTitle("Cканировать", UIControlState.Normal);
 			_startScan.TouchUpInside += OnStarPressed;
 		}

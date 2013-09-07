@@ -120,6 +120,7 @@
     <Compile Include="Screens\StartScreen\StartScreenViewController.cs" />
     <Compile Include="Common\DefaultFrames.cs" />
     <Compile Include="Common\Device.cs" />
+    <Compile Include="Common\FrameExtensions.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
