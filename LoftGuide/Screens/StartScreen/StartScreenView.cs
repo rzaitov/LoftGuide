@@ -3,7 +3,7 @@ using System.Drawing;
 
 using MonoTouch.UIKit;
 
-namespace LoftGuide.Screens.StartScreen
+namespace LoftGuide.Touch.Screens.StartScreen
 {
 	public class StartScreenView : UIView
 	{

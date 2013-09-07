@@ -103,6 +103,7 @@
     <Folder Include="Resources\ExibitInfos\css\" />
     <Folder Include="ScreenControllers\" />
     <Folder Include="Screens\StartScreen\" />
+    <Folder Include="Common\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Info.plist" />
@@ -117,6 +118,8 @@
     <Compile Include="Screens\MainViewController.cs" />
     <Compile Include="Screens\StartScreen\StartScreenView.cs" />
     <Compile Include="Screens\StartScreen\StartScreenViewController.cs" />
+    <Compile Include="Common\DefaultFrames.cs" />
+    <Compile Include="Common\Device.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>

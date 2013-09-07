@@ -2,8 +2,11 @@ using System;
 using System.Drawing;
 
 using MonoTouch.UIKit;
+using MonoTouch.Foundation;
 
-namespace LoftGuide.Screens.StartScreen
+using LoftGuide.Touch.Common;
+
+namespace LoftGuide.Touch.Screens.StartScreen
 {
 	public class StartScreenViewController : UIViewController
 	{
@@ -11,11 +14,16 @@ namespace LoftGuide.Screens.StartScreen
 
 		public StartScreenViewController()
 		{
+
 		}
 
 		public override void ViewDidLoad()
 		{
 			base.ViewDidLoad();
+
+			_view = new StartScreenView();
+			_view.ClipsToBounds = true;
+			_view.Frame = DefaultFrames.MainFrame;
 		}
 	}
 }
