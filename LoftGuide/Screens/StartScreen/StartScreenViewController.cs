@@ -16,7 +16,6 @@ namespace LoftGuide.Screens.StartScreen
 		private StartScreenController _controller;
 
 		private ZXingScannerViewController _scanerController;
-		private MobileBarcodeScanner _barCodeScaner;
 		private MobileBarcodeScanningOptions _options;
 
 		public StartScreenViewController(StartScreenController controller)
@@ -24,10 +23,9 @@ namespace LoftGuide.Screens.StartScreen
 			_controller = controller;
 			_controller.OnStartScanPressed += OnStartScanPressed;
 
-			_barCodeScaner = new MobileBarcodeScanner(this);
 			_options = new MobileBarcodeScanningOptions();
 			_options.AutoRotate = false;
-			_scanerController = new ZXingScannerViewController(_options, _barCodeScaner);
+			_scanerController = new ZXingScannerViewController(_options);
 			_scanerController.OnScannedResult += HandleOnScannedResult;
 		}
 
@@ -38,10 +36,6 @@ namespace LoftGuide.Screens.StartScreen
 
 		private void OnStartScanPressed ()
 		{
-			_barCodeScaner.UseCustomOverlay = false;
-			_barCodeScaner.TopText = "наведите камеру на штрихкод";
-			_barCodeScaner.BottomText = "и подождите";
-
 			PresentViewController(_scanerController, true, null);
 //			_barCodeScaner.Scan();
 

@@ -12,64 +12,59 @@ namespace ZXing.Mobile
 {	
 	public class ZXingScannerViewController : UIViewController
 	{
-		ZXingScannerView scannerView;
-
 		public event Action<ZXing.Result> OnScannedResult;
 
 		public MobileBarcodeScanningOptions ScanningOptions { get;set; }
-		public MobileBarcodeScanner Scanner { get;set; }
 
-		//UIView overlayView = null;
-		
-		public ZXingScannerViewController(MobileBarcodeScanningOptions options, MobileBarcodeScanner scanner)
+		private ZXingScannerView _scannerView;
+
+		public ZXingScannerViewController(MobileBarcodeScanningOptions options)
 		{
 			this.ScanningOptions = options;
-			this.Scanner = scanner;
 
 			var appFrame = UIScreen.MainScreen.ApplicationFrame;
 
-			this.View.Frame = new RectangleF(0, 0, appFrame.Width, appFrame.Height);
+			this.View.Frame = UIScreen.MainScreen.Bounds;
 			this.View.AutoresizingMask = UIViewAutoresizing.FlexibleWidth | UIViewAutoresizing.FlexibleHeight;
 		}
 
 
 		public void Cancel()
 		{
-			this.InvokeOnMainThread(() => scannerView.StopScanning());
+			InvokeOnMainThread(() => _scannerView.StopScanning());
 		}
 
 		UIStatusBarStyle originalStatusBarStyle = UIStatusBarStyle.Default;
 
 		public override void ViewDidLoad ()
 		{
-			scannerView = new ZXingScannerView(new RectangleF(0, 0, this.View.Frame.Width, this.View.Frame.Height));
-			scannerView.AutoresizingMask = UIViewAutoresizing.FlexibleWidth | UIViewAutoresizing.FlexibleHeight;
-			scannerView.UseCustomOverlayView = this.Scanner.UseCustomOverlay;
-			scannerView.CustomOverlayView = this.Scanner.CustomOverlay;
-			scannerView.TopText = this.Scanner.TopText;
-			scannerView.BottomText = this.Scanner.BottomText;
-			scannerView.CancelButtonText = this.Scanner.CancelButtonText;
-			scannerView.FlashButtonText = this.Scanner.FlashButtonText;
+			_scannerView = new ZXingScannerView(View.Bounds);
+			_scannerView.AutoresizingMask = UIViewAutoresizing.FlexibleWidth | UIViewAutoresizing.FlexibleHeight;
+			_scannerView.UseCustomOverlayView = false;
+//			scannerView.TopText = this.Scanner.TopText;
+//			scannerView.BottomText = this.Scanner.BottomText;
+//			scannerView.CancelButtonText = this.Scanner.CancelButtonText;
+//			scannerView.FlashButtonText = this.Scanner.FlashButtonText;
 
-			this.View.AddSubview(scannerView);
-			this.View.AutoresizingMask = UIViewAutoresizing.FlexibleWidth;
+			View.AddSubview(_scannerView);
+			View.AutoresizingMask = UIViewAutoresizing.FlexibleWidth;
 		}
 
 		public void Torch(bool on)
 		{
-			if (scannerView != null)
-				scannerView.SetTorch (on);
+			if (_scannerView != null)
+				_scannerView.SetTorch (on);
 		}
 
 		public void ToggleTorch()
 		{
-			if (scannerView != null)
-				scannerView.ToggleTorch ();
+			if (_scannerView != null)
+				_scannerView.ToggleTorch ();
 		}
 
 		public bool IsTorchOn
 		{
-			get { return scannerView.IsTorchOn; }
+			get { return _scannerView.IsTorchOn; }
 		}
 
 		public override void ViewDidAppear (bool animated)
@@ -79,25 +74,26 @@ namespace ZXing.Mobile
 			UIApplication.SharedApplication.SetStatusBarStyle(UIStatusBarStyle.BlackTranslucent, false);
 
 			Console.WriteLine("Starting to scan...");
-
-			scannerView.StartScanning(this.ScanningOptions, result => {
-
-				Console.WriteLine("Stopping scan...");
-
-				scannerView.StopScanning();
-
-				var evt = this.OnScannedResult;
-				if (evt != null)
-					evt(result);
-				
-				
-			});
+			_scannerView.StartScanning(this.ScanningOptions, OnScanCompletion);
 		}
+
+		private void OnScanCompletion(Result result)
+		{
+			Console.WriteLine("Stopping scan...");
+			_scannerView.StopScanning();
+
+			var handler = OnScannedResult;
+			if (handler != null)
+			{
+				handler(result);
+			}
+		}
+
 
 		public override void ViewDidDisappear (bool animated)
 		{
-			if (scannerView != null)
-				scannerView.StopScanning();
+			if (_scannerView != null)
+				_scannerView.StopScanning();
 		}
 
 		public override void ViewWillDisappear(bool animated)
@@ -114,8 +110,8 @@ namespace ZXing.Mobile
 
 		public override void DidRotate (UIInterfaceOrientation fromInterfaceOrientation)
 		{
-			if (scannerView != null)
-				scannerView.DidRotate (this.InterfaceOrientation);
+			if (_scannerView != null)
+				_scannerView.DidRotate (this.InterfaceOrientation);
 
 			//overlayView.LayoutSubviews();
 		}	

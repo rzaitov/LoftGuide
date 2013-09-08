@@ -18,36 +18,38 @@ namespace ZXing.Mobile
 {
 	public class ZXingScannerView : UIView, IZXingScanner<UIView>
 	{
-		public ZXingScannerView()
-		{
-		}
-
-		public ZXingScannerView(IntPtr handle) : base(handle)
-		{
-		}
-
-		public ZXingScannerView (RectangleF frame) : base(frame)
-		{
-		}
-
-		AVCaptureSession session;
-		AVCaptureVideoPreviewLayer previewLayer;
-		AVCaptureVideoDataOutput output;
-		OutputRecorder outputRecorder;
-		DispatchQueue queue;
-		Action<ZXing.Result> resultCallback;
-		volatile bool stopped = true;
+		private AVCaptureSession session;
+		private AVCaptureVideoPreviewLayer previewLayer;
+		private AVCaptureVideoDataOutput output;
+		private OutputRecorder outputRecorder;
+		private DispatchQueue queue;
+		private Action<ZXing.Result> resultCallback;
+		private volatile bool stopped = true;
 		//BarcodeReader barcodeReader;
 
-		UIView layerView;
-		UIView overlayView = null;
+		private UIView layerView;
+		private UIView overlayView = null;
 
 		public string CancelButtonText { get;set; }
 		public string FlashButtonText { get;set; }
 
 		MobileBarcodeScanningOptions options = new MobileBarcodeScanningOptions();
+		public ZXingScannerView()
+		{
 
-		void Setup(RectangleF frame)
+		}
+
+		public ZXingScannerView(IntPtr handle) : base(handle)
+		{
+
+		}
+
+		public ZXingScannerView (RectangleF frame) : base(frame)
+		{
+
+		}
+
+		private void Setup(RectangleF frame)
 		{
 			if (overlayView != null)
 				overlayView.RemoveFromSuperview ();
@@ -61,23 +63,6 @@ namespace ZXing.Mobile
 
 			if (overlayView != null)
 			{
-				/*UITapGestureRecognizer tapGestureRecognizer = new UITapGestureRecognizer ();
-
-				tapGestureRecognizer.AddTarget (() => {
-
-					var pt = tapGestureRecognizer.LocationInView(overlayView);
-
-					Focus(pt);
-		
-					Console.WriteLine("OVERLAY TOUCH: " + pt.X + ", " + pt.Y);
-
-				});
-				tapGestureRecognizer.CancelsTouchesInView = false;
-				tapGestureRecognizer.NumberOfTapsRequired = 1;
-				tapGestureRecognizer.NumberOfTouchesRequired = 1;
-
-				overlayView.AddGestureRecognizer (tapGestureRecognizer);*/
-
 				overlayView.Frame = new RectangleF(0, 0, this.Frame.Width, this.Frame.Height);
 				overlayView.AutoresizingMask = UIViewAutoresizing.FlexibleWidth | UIViewAutoresizing.FlexibleHeight;
 
@@ -520,9 +505,19 @@ namespace ZXing.Mobile
 			//Doesn't do much on iOS :(
 		}
 
-		public string TopText { get;set; }
-		public string BottomText { get;set; }
+		private string _topText = "Наведите камеру на штрихкод";
+		private string _bottomText = "Штрихкод не должен перекрываться тенями или бликами";
 
+		public string TopText
+		{
+			get { return _topText; }
+			set { _topText = value; }
+		}
+		public string BottomText
+		{
+			get { return _bottomText; }
+			set { _bottomText = value; }
+		}
 
 		public UIView CustomOverlayView { get; set; }
 		public bool UseCustomOverlayView { get; set; }
