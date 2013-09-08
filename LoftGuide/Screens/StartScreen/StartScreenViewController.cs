@@ -28,16 +28,23 @@ namespace LoftGuide.Screens.StartScreen
 			_options = new MobileBarcodeScanningOptions();
 			_options.AutoRotate = false;
 			_scanerController = new ZXingScannerViewController(_options, _barCodeScaner);
+			_scanerController.OnScannedResult += HandleOnScannedResult;
+		}
+
+		private void HandleOnScannedResult(ZXing.Result result)
+		{
+			_scanerController.DismissViewController(true, null);
 		}
 
 		private void OnStartScanPressed ()
 		{
-			//PresentViewController(_scanerController, true, null);
 			_barCodeScaner.UseCustomOverlay = false;
 			_barCodeScaner.TopText = "наведите камеру на штрихкод";
 			_barCodeScaner.BottomText = "и подождите";
 
-			System.Threading.Tasks.Task<ZXing.Result> result = _barCodeScaner.Scan();
+			PresentViewController(_scanerController, true, null);
+//			_barCodeScaner.Scan();
+
 			//HandleScanResult(result);
 
 		}

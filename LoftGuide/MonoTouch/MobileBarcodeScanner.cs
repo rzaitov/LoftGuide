@@ -33,8 +33,8 @@ namespace ZXing.Mobile
 
 		public override Task<Result> Scan (MobileBarcodeScanningOptions options)
 		{
-			return Task.Factory.StartNew(() => {
-
+			return Task.Factory.StartNew(() =>
+			{
 				try
 				{
 					scanResultResetEvent.Reset();
@@ -46,9 +46,10 @@ namespace ZXing.Mobile
 						//viewController = new ZxingCameraViewController(options, this);
 						viewController = new ZXing.Mobile.ZXingScannerViewController(options, this);
 
-						viewController.OnScannedResult += barcodeResult => {
-
-							viewController.InvokeOnMainThread(() => {
+						viewController.OnScannedResult += barcodeResult =>
+						{
+							viewController.InvokeOnMainThread(() =>
+							{
 								viewController.Cancel();
 								viewController.DismissViewController(true, () => {
 
@@ -73,6 +74,11 @@ namespace ZXing.Mobile
 					return null;
 				}
 			});
+
+		}
+
+		private void OnScannedResult(Result barcodeResult)
+		{
 
 		}
 
