@@ -61,7 +61,10 @@ namespace LoftGuide.Screens.ExibitInfoScreen
 
 			_webDelegate = new WebViewDelegate();
 			_contentDisplayer.Delegate = _webDelegate;
+		}
 
+		public void BindToView()
+		{
 			LoadExibitInfoFromFile("ExibitInfos/LaJoconde.html");
 		}
 

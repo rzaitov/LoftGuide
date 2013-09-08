@@ -107,6 +107,9 @@
     <Folder Include="Screens\SceenEngine\" />
     <Folder Include="Screens\SceenEngine\Transitions\" />
     <Folder Include="Screens\SceenEngine\Transitions\Common\" />
+    <Folder Include="Service\" />
+    <Folder Include="Domain\" />
+    <Folder Include="Storage\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Info.plist" />
@@ -140,6 +143,9 @@
     <Compile Include="Screens\SceenEngine\Transitions\Common\TransitionType.cs" />
     <Compile Include="Screens\SceenEngine\Transitions\AppearanceTransition.cs" />
     <Compile Include="Screens\SceenEngine\Transitions\DisappearanceTransition.cs" />
+    <Compile Include="Service\ExibitInfoService.cs" />
+    <Compile Include="Domain\ExibitInfo.cs" />
+    <Compile Include="Storage\ExibitInfoStorage.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>

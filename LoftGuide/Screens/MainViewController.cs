@@ -4,6 +4,9 @@ using System.Drawing;
 using MonoTouch.Foundation;
 using MonoTouch.UIKit;
 
+using LoftGuide.Storage;
+using LoftGuide.Logic;
+
 using LoftGuide.Touch.Common;
 using LoftGuide.Screens.Engine;
 using LoftGuide.Screens.StartScreen;
@@ -30,8 +33,14 @@ namespace LoftGuide.Screens
 		private ExibitInfoViewController _exibitInfoViewController;
 		private ExibitInfoController _exibitInfoController;
 
+		private ExibitInfoStorage _exibitInfoStorage;
+		private ExibitInfoService _exibitInfoService;
+
 		public MainViewController()
 		{
+			InitStoges();
+			InitServices();
+
 			InitScreens();
 			InitTransitions();
 		}
@@ -54,7 +63,7 @@ namespace LoftGuide.Screens
 			_scanController.ScanCompletedWithResult += GoFromScanScreenToInfoScreen;
 			_scannerViewController = new ZXingScannerViewController(_scanController);
 
-			_exibitInfoController = new ExibitInfoController();
+			_exibitInfoController = new ExibitInfoController(_exibitInfoService);
 			_exibitInfoController.ShowScanScreen += GoFromInfoScreenToScanScreen;
 			_exibitInfoViewController = new ExibitInfoViewController(_exibitInfoController);
 		}
@@ -114,6 +123,15 @@ namespace LoftGuide.Screens
 			};
 		}
 
+		private void InitStoges()
+		{
+			_exibitInfoStorage = new ExibitInfoStorage();
+		}
+
+		private void InitServices()
+		{
+			_exibitInfoService = new ExibitInfoService(_exibitInfoStorage);
+		}
 	}
 }
 

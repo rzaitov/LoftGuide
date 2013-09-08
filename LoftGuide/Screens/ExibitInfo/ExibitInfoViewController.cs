@@ -10,7 +10,7 @@ namespace LoftGuide.Screens.ExibitInfoScreen
 	{
 		private static readonly RectangleF MainFrame = new RectangleF(0f, 0f, 320f, 460f);
 
-		private UIView _view;
+		private ExibitInfoView _view;
 		private ExibitInfoController _controller;
 
 		public ExibitInfoViewController(ExibitInfoController controller)
@@ -28,6 +28,13 @@ namespace LoftGuide.Screens.ExibitInfoScreen
 			_view.Frame = MainFrame;
 
 			View.AddSubview(_view);
+		}
+
+		public override void ViewDidAppear(bool animated)
+		{
+			base.ViewDidAppear(animated);
+
+			_view.BindToView();
 		}
 	}
 }
