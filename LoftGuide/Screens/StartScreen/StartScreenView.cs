@@ -20,7 +20,6 @@ namespace LoftGuide.Screens.StartScreen
 			_controller = controller;
 
 			Frame = frame;
-			BackgroundColor = UIColor.Yellow;
 			InitStartScanButton();
 
 			AddSubview(_startScan);

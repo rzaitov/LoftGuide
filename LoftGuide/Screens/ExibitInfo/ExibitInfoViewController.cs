@@ -36,6 +36,13 @@ namespace LoftGuide.Screens.ExibitInfoScreen
 
 			_view.BindToView();
 		}
+
+		public override void ViewWillAppear(bool animated)
+		{
+			base.ViewWillAppear(animated);
+
+			_view.BindToView();
+		}
 	}
 }
 

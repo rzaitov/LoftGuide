@@ -24,11 +24,6 @@ namespace LoftGuide.Screens.ScanScreen
 			_controller = controller;
 			ScanningOptions = new MobileBarcodeScanningOptions();
 			ScanningOptions.AutoRotate = false;
-
-			var appFrame = UIScreen.MainScreen.ApplicationFrame;
-
-			this.View.Frame = UIScreen.MainScreen.Bounds;
-			this.View.AutoresizingMask = UIViewAutoresizing.FlexibleWidth | UIViewAutoresizing.FlexibleHeight;
 		}
 
 		public void Cancel()
@@ -40,6 +35,9 @@ namespace LoftGuide.Screens.ScanScreen
 
 		public override void ViewDidLoad ()
 		{
+			this.View.Frame = UIScreen.MainScreen.Bounds;
+			this.View.AutoresizingMask = UIViewAutoresizing.FlexibleWidth | UIViewAutoresizing.FlexibleHeight;
+
 			_scannerView = new ZXingScannerView(View.Bounds);
 			_scannerView.AutoresizingMask = UIViewAutoresizing.FlexibleWidth | UIViewAutoresizing.FlexibleHeight;
 			_scannerView.UseCustomOverlayView = false;

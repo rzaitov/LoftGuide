@@ -12,7 +12,7 @@ namespace LoftGuide.Screens.Engine
 		{
 			get
 			{
-				return false;
+				return true;
 			}
 		}
 
@@ -20,7 +20,7 @@ namespace LoftGuide.Screens.Engine
 		{
 			get
 			{
-				return false;
+				return true;
 			}
 		}
 

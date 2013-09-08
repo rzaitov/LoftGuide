@@ -113,6 +113,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Info.plist" />
+    <None Include="Resources\ExibitInfos\404.html" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Main.cs" />
@@ -152,5 +153,6 @@
     <BundleResource Include="Resources\ExibitInfos\img\bfbe9f71769a.jpg" />
     <BundleResource Include="Resources\ExibitInfos\LaJoconde.html" />
     <BundleResource Include="Resources\ExibitInfos\css\style.css" />
+    <BundleResource Include="Resources\ExibitInfos\img\binoculars.jpg" />
   </ItemGroup>
 </Project>

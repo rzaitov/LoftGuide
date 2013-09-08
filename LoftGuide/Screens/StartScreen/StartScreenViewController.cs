@@ -25,12 +25,23 @@ namespace LoftGuide.Screens.StartScreen
 		{
 			base.ViewDidLoad();
 			View.Frame = DefaultFrames.MainFrame;
-			View.BackgroundColor = UIColor.White;
+			View.BackgroundColor = UIColor.Yellow;
 
 			_view = new StartScreenView(_controller, DefaultFrames.MainFrame);
 			_view.ClipsToBounds = true;
 
 			View.AddSubview(_view);
+		}
+
+		public override void ViewWillAppear(bool animated)
+		{
+			base.ViewWillAppear(animated);
+		}
+
+		public override void ViewDidAppear(bool animated)
+		{
+			base.ViewDidAppear(animated);
+			View.BackgroundColor = UIColor.White;
 		}
 	}
 }
