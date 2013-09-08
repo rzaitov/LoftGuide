@@ -6,11 +6,11 @@ using MonoTouch.Foundation;
 
 namespace LoftGuide.Screens.Engine
 {
-	public class SimpleAppearanceTransition : BaseTransition
+	public class AppearanceTransition : BaseTransition
 	{
 		public RectangleF Frame { get; private set; }
 
-		public SimpleAppearanceTransition(UIViewController target, RectangleF frame)
+		public AppearanceTransition(UIViewController target, RectangleF frame)
 			: base(target)
 		{
 			Frame = frame;
@@ -19,7 +19,9 @@ namespace LoftGuide.Screens.Engine
 
 		public override void BeginAnimation()
 		{
-			Target.View.Frame = Frame;
+			UIView v = Target.View;
+			v.Frame = Frame;
+			v.Superview.SendSubviewToBack(v);
 		}
 
 		public override void Animate()
