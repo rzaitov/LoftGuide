@@ -12,7 +12,13 @@ namespace ZXing.Mobile
 {	
 	public class ZXingScannerViewController : UIViewController
 	{
-		public event Action<ZXing.Result> OnScannedResult;
+		public event Action ScanCompleted;
+
+		private ZXing.Result _scanResult;
+		public ZXing.Result ScanResult
+		{
+			get { return _scanResult; }
+		}
 
 		public MobileBarcodeScanningOptions ScanningOptions { get;set; }
 
@@ -79,13 +85,15 @@ namespace ZXing.Mobile
 
 		private void OnScanCompletion(Result result)
 		{
+			_scanResult = result;
+
 			Console.WriteLine("Stopping scan...");
 			_scannerView.StopScanning();
 
-			var handler = OnScannedResult;
+			var handler = ScanCompleted;
 			if (handler != null)
 			{
-				handler(result);
+				handler();
 			}
 		}
 

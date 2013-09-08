@@ -26,10 +26,10 @@ namespace LoftGuide.Screens.StartScreen
 			_options = new MobileBarcodeScanningOptions();
 			_options.AutoRotate = false;
 			_scanerController = new ZXingScannerViewController(_options);
-			_scanerController.OnScannedResult += HandleOnScannedResult;
+			_scanerController.ScanCompleted += HandleOnScannedResult;
 		}
 
-		private void HandleOnScannedResult(ZXing.Result result)
+		private void HandleOnScannedResult()
 		{
 			_scanerController.DismissViewController(true, null);
 		}
