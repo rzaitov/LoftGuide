@@ -86,9 +86,6 @@
     <Reference Include="System.Xml" />
     <Reference Include="System.Core" />
     <Reference Include="monotouch" />
-    <Reference Include="ZXing.Net.Mobile">
-      <HintPath>..\Libs\ZXing.Net.Mobile.dll</HintPath>
-    </Reference>
     <Reference Include="zxing.monotouch">
       <HintPath>..\Libs\zxing.monotouch.dll</HintPath>
     </Reference>
@@ -104,6 +101,8 @@
     <Folder Include="ScreenControllers\" />
     <Folder Include="Screens\StartScreen\" />
     <Folder Include="Common\" />
+    <Folder Include="Mono\" />
+    <Folder Include="MonoTouch\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Info.plist" />
@@ -123,6 +122,12 @@
     <Compile Include="Common\FrameExtensions.cs" />
     <Compile Include="ScreenControllers\StartScreenController.cs" />
     <Compile Include="ScreenControllers\ScreenControllerBase.cs" />
+    <Compile Include="Mono\IMobileBarcodeScanner.cs" />
+    <Compile Include="Mono\MobileBarcodeScanningOptions.cs" />
+    <Compile Include="MonoTouch\MobileBarcodeScanner.cs" />
+    <Compile Include="MonoTouch\ZXingDefaultOverlayView.cs" />
+    <Compile Include="MonoTouch\ZXingScannerView.cs" />
+    <Compile Include="MonoTouch\ZXingScannerViewController.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
