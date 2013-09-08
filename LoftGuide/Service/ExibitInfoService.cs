@@ -1,4 +1,5 @@
 using System;
+using System.IO;
 using System.Collections.Generic;
 
 using LoftGuide.Domain;
@@ -33,7 +34,11 @@ namespace LoftGuide.Logic
 			string pathToFile = _keyFilePathMap[key];
 			string htmlContent = _storage.GetExibitInfoByPath(pathToFile);
 
-			ExibitInfo info = new ExibitInfo { HtmlExibitInfo = htmlContent };
+			ExibitInfo info = new ExibitInfo
+			{
+				HtmlExibitInfo = htmlContent,
+				DirPath = Path.GetDirectoryName(pathToFile)
+			};
 
 			return info;
 		}

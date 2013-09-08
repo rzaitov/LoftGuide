@@ -75,6 +75,7 @@ namespace LoftGuide.Screens
 
 		void GoFromScanScreenToInfoScreen ()
 		{
+			_exibitInfoController.SetExibitInfoKey(_scanController.ScanResult.Text);
 			InvokeOnMainThread(() => PerformTransitions(0.5f, _fromScanScreenToInfoScreen));
 		}
 

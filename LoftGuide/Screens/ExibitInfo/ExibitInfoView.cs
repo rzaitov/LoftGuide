@@ -5,6 +5,8 @@ using System.Drawing;
 using MonoTouch.UIKit;
 using MonoTouch.Foundation;
 
+using LoftGuide.Domain;
+
 namespace LoftGuide.Screens.ExibitInfoScreen
 {
 	public class ExibitInfoView : UIView
@@ -65,16 +67,10 @@ namespace LoftGuide.Screens.ExibitInfoScreen
 
 		public void BindToView()
 		{
-			LoadExibitInfoFromFile("ExibitInfos/LaJoconde.html");
-		}
+			ExibitInfo info = _controller.GetExibitInfo();
 
-		private void LoadExibitInfoFromFile(string path)
-		{
-			string htmlContent = File.ReadAllText(path);
-			string dir = Path.GetDirectoryName(path);
-
-			NSUrl dirUrl = new NSUrl(dir, true);
-			_contentDisplayer.LoadHtmlString(htmlContent, dirUrl);
+			NSUrl dirUrl = new NSUrl(info.DirPath, true);
+			_contentDisplayer.LoadHtmlString(info.HtmlExibitInfo, dirUrl);
 		}
 	}
 }
