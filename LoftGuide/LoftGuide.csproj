@@ -104,6 +104,9 @@
     <Folder Include="Mono\" />
     <Folder Include="MonoTouch\" />
     <Folder Include="Screens\ScanScreen\" />
+    <Folder Include="Screens\SceenEngine\" />
+    <Folder Include="Screens\SceenEngine\Transitions\" />
+    <Folder Include="Screens\SceenEngine\Transitions\Common\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Info.plist" />
@@ -129,6 +132,12 @@
     <Compile Include="Screens\ScanScreen\ZXingDefaultOverlayView.cs" />
     <Compile Include="Screens\ScanScreen\ZXingScannerView.cs" />
     <Compile Include="ScreenControllers\ScanController.cs" />
+    <Compile Include="Screens\SceenEngine\ContainerViewController.cs" />
+    <Compile Include="Screens\SceenEngine\Transitions\MoveTransition.cs" />
+    <Compile Include="Screens\SceenEngine\Transitions\VirtualTransition.cs" />
+    <Compile Include="Screens\SceenEngine\Transitions\Common\BaseTransition.cs" />
+    <Compile Include="Screens\SceenEngine\Transitions\Common\ITransition.cs" />
+    <Compile Include="Screens\SceenEngine\Transitions\Common\TransitionType.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>

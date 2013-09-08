@@ -4,9 +4,11 @@ using System.Drawing;
 using MonoTouch.Foundation;
 using MonoTouch.UIKit;
 
+using LoftGuide.Screens.Engine;
+
 namespace LoftGuide.Screens
 {
-	public class MainViewController : UIViewController
+	public class MainViewController : ContainerViewController
 	{
 		public MainViewController()
 		{
