@@ -139,6 +139,7 @@
     <Compile Include="Screens\SceenEngine\Transitions\Common\ITransition.cs" />
     <Compile Include="Screens\SceenEngine\Transitions\Common\TransitionType.cs" />
     <Compile Include="Screens\SceenEngine\Transitions\AppearanceTransition.cs" />
+    <Compile Include="Screens\SceenEngine\Transitions\DisappearanceTransition.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
