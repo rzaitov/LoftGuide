@@ -19,10 +19,11 @@ namespace LoftGuide.Screens.ScanScreen
 		private ZXingScannerView _scannerView;
 		private ScanController _controller;
 
-		public ZXingScannerViewController(ScanController controller, MobileBarcodeScanningOptions options)
+		public ZXingScannerViewController(ScanController controller)
 		{
 			_controller = controller;
-			this.ScanningOptions = options;
+			ScanningOptions = new MobileBarcodeScanningOptions();
+			ScanningOptions.AutoRotate = false;
 
 			var appFrame = UIScreen.MainScreen.ApplicationFrame;
 

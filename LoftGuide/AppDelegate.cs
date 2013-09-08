@@ -6,8 +6,7 @@ using MonoTouch.Foundation;
 using MonoTouch.UIKit;
 
 using LoftGuide.Touch.Common;
-using LoftGuide.Screens.ExibitInfoScreen;
-using LoftGuide.Screens.StartScreen;
+using LoftGuide.Screens;
 
 namespace LoftGuide
 {
@@ -15,24 +14,16 @@ namespace LoftGuide
 	public partial class AppDelegate : UIApplicationDelegate
 	{
 		private UIWindow window;
-
-		private ExibitInfoViewController _controller;
-
-		private StartScreenViewController _startScreenViewController;
-		private StartScreenController _startScreenController;
+		private MainViewController _controller;
 
 		public override bool FinishedLaunching(UIApplication app, NSDictionary options)
 		{
 			DefaultFrames.Initialize(Device.DeviceType);
 
 			window = new UIWindow(UIScreen.MainScreen.Bounds);
-			_controller = new ExibitInfoViewController();
+			_controller = new MainViewController();
 
-			_startScreenController = new StartScreenController();
-			_startScreenViewController = new StartScreenViewController(_startScreenController);
-
-			//window.RootViewController = _controller;
-			window.RootViewController = _startScreenViewController;
+			window.RootViewController = _controller;
 			window.MakeKeyAndVisible();
 
 			return true;

@@ -16,33 +16,9 @@ namespace LoftGuide.Screens.StartScreen
 		private StartScreenView _view;
 		private StartScreenController _controller;
 
-		private ZXingScannerViewController _scanerViewController;
-		private ScanController _scanController;
-		private MobileBarcodeScanningOptions _options;
-
 		public StartScreenViewController(StartScreenController controller)
 		{
 			_controller = controller;
-			_controller.OnStartScanPressed += OnStartScanPressed;
-
-			_options = new MobileBarcodeScanningOptions();
-			_options.AutoRotate = false;
-
-			_scanController = new ScanController();
-			_scanController.ScanCanceled += HandleOnScannedResult;
-			_scanController.ScanCompletedWithResult += HandleOnScannedResult;
-
-			_scanerViewController = new ZXingScannerViewController(_scanController, _options);
-		}
-
-		private void HandleOnScannedResult()
-		{
-			_scanerViewController.DismissViewController(true, null);
-		}
-
-		private void OnStartScanPressed ()
-		{
-			PresentViewController(_scanerViewController, true, null);
 		}
 
 		public override void ViewDidLoad()

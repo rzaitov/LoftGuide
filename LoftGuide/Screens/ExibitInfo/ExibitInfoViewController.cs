@@ -13,9 +13,9 @@ namespace LoftGuide.Screens.ExibitInfoScreen
 		private UIView _view;
 		private ExibitInfoController _controller;
 
-		public ExibitInfoViewController()
+		public ExibitInfoViewController(ExibitInfoController controller)
 		{
-			_controller = new ExibitInfoController();
+			_controller = controller;
 		}
 
 		public override void ViewDidLoad()
