@@ -7,7 +7,7 @@ using ZXing.Mobile;
 using System.Collections.Generic;
 using MonoTouch.AVFoundation;
 
-namespace ZXing.Mobile
+namespace LoftGuide.Screens.ScanScreen
 {
 	public class ZXingDefaultOverlayView : UIView
 	{

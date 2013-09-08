@@ -7,6 +7,7 @@ using MonoTouch.Foundation;
 using ZXing.Mobile;
 
 using LoftGuide.Touch.Common;
+using LoftGuide.Screens.ScanScreen;
 
 namespace LoftGuide.Screens.StartScreen
 {
@@ -15,7 +16,8 @@ namespace LoftGuide.Screens.StartScreen
 		private StartScreenView _view;
 		private StartScreenController _controller;
 
-		private ZXingScannerViewController _scanerController;
+		private ZXingScannerViewController _scanerViewController;
+		private ScanController _scanController;
 		private MobileBarcodeScanningOptions _options;
 
 		public StartScreenViewController(StartScreenController controller)
@@ -25,41 +27,23 @@ namespace LoftGuide.Screens.StartScreen
 
 			_options = new MobileBarcodeScanningOptions();
 			_options.AutoRotate = false;
-			_scanerController = new ZXingScannerViewController(_options);
-			_scanerController.ScanCompleted += HandleOnScannedResult;
+
+			_scanController = new ScanController();
+			_scanController.ScanCanceled += HandleOnScannedResult;
+			_scanController.ScanCompletedWithResult += HandleOnScannedResult;
+
+			_scanerViewController = new ZXingScannerViewController(_scanController, _options);
 		}
 
 		private void HandleOnScannedResult()
 		{
-			_scanerController.DismissViewController(true, null);
+			_scanerViewController.DismissViewController(true, null);
 		}
 
 		private void OnStartScanPressed ()
 		{
-			PresentViewController(_scanerController, true, null);
-//			_barCodeScaner.Scan();
-
-			//HandleScanResult(result);
-
+			PresentViewController(_scanerViewController, true, null);
 		}
-
-		private void HandleScanResult(ZXing.Result result)
-		{
-			string msg = "";
-
-			if (result != null && !string.IsNullOrEmpty(result.Text))
-				msg = "Found Barcode: " + result.Text;
-			else
-				msg = "Scanning Canceled!";
-
-			this.InvokeOnMainThread(() => {
-				var av = new UIAlertView("Barcode Result", msg, null, "OK", null);
-				av.Show();
-			});
-		}
-
-
-
 
 		public override void ViewDidLoad()
 		{

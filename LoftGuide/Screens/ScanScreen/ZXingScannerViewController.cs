@@ -5,27 +5,23 @@ using System.Collections.Generic;
 
 using MonoTouch.UIKit;
 using MonoTouch.Foundation;
-using ZXing;
 using MonoTouch.AVFoundation;
 
-namespace ZXing.Mobile
+using ZXing;
+using ZXing.Mobile;
+
+namespace LoftGuide.Screens.ScanScreen
 {	
 	public class ZXingScannerViewController : UIViewController
 	{
-		public event Action ScanCompleted;
-
-		private ZXing.Result _scanResult;
-		public ZXing.Result ScanResult
-		{
-			get { return _scanResult; }
-		}
-
 		public MobileBarcodeScanningOptions ScanningOptions { get;set; }
 
 		private ZXingScannerView _scannerView;
+		private ScanController _controller;
 
-		public ZXingScannerViewController(MobileBarcodeScanningOptions options)
+		public ZXingScannerViewController(ScanController controller, MobileBarcodeScanningOptions options)
 		{
+			_controller = controller;
 			this.ScanningOptions = options;
 
 			var appFrame = UIScreen.MainScreen.ApplicationFrame;
@@ -33,7 +29,6 @@ namespace ZXing.Mobile
 			this.View.Frame = UIScreen.MainScreen.Bounds;
 			this.View.AutoresizingMask = UIViewAutoresizing.FlexibleWidth | UIViewAutoresizing.FlexibleHeight;
 		}
-
 
 		public void Cancel()
 		{
@@ -85,16 +80,10 @@ namespace ZXing.Mobile
 
 		private void OnScanCompletion(Result result)
 		{
-			_scanResult = result;
-
 			Console.WriteLine("Stopping scan...");
 			_scannerView.StopScanning();
 
-			var handler = ScanCompleted;
-			if (handler != null)
-			{
-				handler();
-			}
+			_controller.SaveScanResult(result);
 		}
 
 

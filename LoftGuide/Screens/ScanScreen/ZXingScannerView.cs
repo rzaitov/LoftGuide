@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Drawing;
 using System.Threading;
 using System.Threading.Tasks;
+
 using MonoTouch.AVFoundation;
 using MonoTouch.CoreFoundation;
 using MonoTouch.CoreGraphics;
@@ -11,10 +12,13 @@ using MonoTouch.CoreVideo;
 using MonoTouch.Foundation;
 using MonoTouch.ObjCRuntime;
 using MonoTouch.UIKit;
+
+using ZXing;
 using ZXing.Common;
 using ZXing.Mobile;
 
-namespace ZXing.Mobile
+
+namespace LoftGuide.Screens.ScanScreen
 {
 	public class ZXingScannerView : UIView, IZXingScanner<UIView>
 	{
