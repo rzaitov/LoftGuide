@@ -30,8 +30,33 @@ namespace ZXing.Mobile
 		private UIView layerView;
 		private UIView overlayView = null;
 
-		public string CancelButtonText { get;set; }
-		public string FlashButtonText { get;set; }
+		private string _topText = "Наведите камеру на штрихкод";
+		public string TopText
+		{
+			get { return _topText; }
+			set { _topText = value; }
+		}
+
+		private string _bottomText = "Штрихкод не должен перекрываться тенями или бликами";
+		public string BottomText
+		{
+			get { return _bottomText; }
+			set { _bottomText = value; }
+		}
+
+		private string _cancelButtonText = @"Отмена";
+		public string CancelButtonText
+		{ 
+			get { return _cancelButtonText; }
+			set { _cancelButtonText = value; }
+		}
+
+		private string _flashButtonText = @"Вспышка";
+		public string FlashButtonText
+		{
+			get { return _flashButtonText; } 
+			set { _flashButtonText = value; }
+		}
 
 		MobileBarcodeScanningOptions options = new MobileBarcodeScanningOptions();
 		public ZXingScannerView()
@@ -503,20 +528,6 @@ namespace ZXing.Mobile
 		public void AutoFocus ()
 		{
 			//Doesn't do much on iOS :(
-		}
-
-		private string _topText = "Наведите камеру на штрихкод";
-		private string _bottomText = "Штрихкод не должен перекрываться тенями или бликами";
-
-		public string TopText
-		{
-			get { return _topText; }
-			set { _topText = value; }
-		}
-		public string BottomText
-		{
-			get { return _bottomText; }
-			set { _bottomText = value; }
 		}
 
 		public UIView CustomOverlayView { get; set; }
