@@ -8,22 +8,17 @@ using MonoTouch.Foundation;
 using MonoTouch.AVFoundation;
 
 using ZXing;
-using ZXing.Mobile;
 
 namespace LoftGuide.Screens.ScanScreen
 {	
 	public class ZXingScannerViewController : UIViewController
 	{
-		public MobileBarcodeScanningOptions ScanningOptions { get;set; }
-
 		private ZXingScannerView _scannerView;
 		private ScanController _controller;
 
 		public ZXingScannerViewController(ScanController controller)
 		{
 			_controller = controller;
-			ScanningOptions = new MobileBarcodeScanningOptions();
-			ScanningOptions.AutoRotate = false;
 		}
 
 		public void Cancel()
@@ -74,7 +69,7 @@ namespace LoftGuide.Screens.ScanScreen
 			UIApplication.SharedApplication.SetStatusBarStyle(UIStatusBarStyle.BlackTranslucent, false);
 
 			Console.WriteLine("Starting to scan...");
-			_scannerView.StartScanning(this.ScanningOptions, OnScanCompletion);
+			_scannerView.StartScanning(_controller.ScanningOptions, OnScanCompletion);
 		}
 
 		private void OnScanCompletion(Result result)
