@@ -3,6 +3,8 @@ using System.Drawing;
 
 using MonoTouch.Foundation;
 using MonoTouch.UIKit;
+using MonoTouch.AudioToolbox;
+
 
 using LoftGuide.Storage;
 using LoftGuide.Logic;
@@ -76,7 +78,11 @@ namespace LoftGuide.Screens
 		void GoFromScanScreenToInfoScreen ()
 		{
 			_exibitInfoController.SetExibitInfoKey(_scanController.ScanResult.Text);
-			InvokeOnMainThread(() => PerformTransitions(0.5f, _fromScanScreenToInfoScreen));
+			InvokeOnMainThread(() =>
+			{
+				SystemSound.Vibrate.PlaySystemSound();
+				PerformTransitions(0.5f, _fromScanScreenToInfoScreen);
+			});
 		}
 
 		void GoFromScanScreenToStartScreen ()
