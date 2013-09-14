@@ -36,10 +36,6 @@ namespace LoftGuide.Screens.ScanScreen
 			_scannerView = new ZXingScannerView(View.Bounds);
 			_scannerView.AutoresizingMask = UIViewAutoresizing.FlexibleWidth | UIViewAutoresizing.FlexibleHeight;
 			_scannerView.UseCustomOverlayView = false;
-//			scannerView.TopText = this.Scanner.TopText;
-//			scannerView.BottomText = this.Scanner.BottomText;
-//			scannerView.CancelButtonText = this.Scanner.CancelButtonText;
-//			scannerView.FlashButtonText = this.Scanner.FlashButtonText;
 
 			View.AddSubview(_scannerView);
 			View.AutoresizingMask = UIViewAutoresizing.FlexibleWidth;
@@ -90,21 +86,12 @@ namespace LoftGuide.Screens.ScanScreen
 		public override void ViewWillDisappear(bool animated)
 		{
 			UIApplication.SharedApplication.SetStatusBarStyle(originalStatusBarStyle, false);
-			
-			//if (scannerView != null)
-			//	scannerView.StopScanning();
-
-			//scannerView.RemoveFromSuperview();
-			//scannerView.Dispose();			
-			//scannerView = null;
 		}
 
 		public override void DidRotate (UIInterfaceOrientation fromInterfaceOrientation)
 		{
 			if (_scannerView != null)
 				_scannerView.DidRotate (this.InterfaceOrientation);
-
-			//overlayView.LayoutSubviews();
 		}	
 		public override bool ShouldAutorotate ()
 		{
