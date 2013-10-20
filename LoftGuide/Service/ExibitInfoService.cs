@@ -22,7 +22,11 @@ namespace LoftGuide.Logic
 			{
 				{ NotFoundKey, "ExibitInfos/404.html" },
 
-				{ "MonaLisa", "ExibitInfos/LaJoconde.html" },
+				{ "kanagawa_greatwave", "ExibitInfos/kanagawa_greatwave.html" },
+				{ "kramskoy_woman", "ExibitInfos/kramskoy_woman.html" },
+				{ "munch_scream", "ExibitInfos/munch_scream.html" },
+				{ "perov_dostoevskiy", "ExibitInfos/perov_dostoevskiy.html" },
+				{ "vangogh_starrynight", "ExibitInfos/vangogh_starrynight.html" }
 			};
 		}
 

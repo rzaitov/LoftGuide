@@ -7,7 +7,7 @@
 		<string>UIInterfaceOrientationPortrait</string>
 	</array>
 	<key>MinimumOSVersion</key>
-	<string>5.0</string>
+	<string>5.1</string>
 	<key>CFBundleDisplayName</key>
 	<string>Loft Guide</string>
 </dict>
