@@ -1,0 +1,58 @@
+﻿body, p, h1
+{
+    font-family: Verdana, Arial, Tahoma, Sans-Serif;
+    font-size: 10pt;
+    margin: 0px;
+    padding: 0px;
+}
+
+body
+{
+    margin-bottom: 8pt;
+}
+
+#main
+{
+    width: 320px;
+
+    margin: 0px;
+    padding: 0px;
+}
+
+h1
+{
+    font-size: 13pt;
+    font-weight: bold;
+    margin: 4pt 2pt 4pt 15pt;
+}
+
+p
+{
+    margin: 4pt 2pt;
+}
+
+.author
+{
+    margin: 2pt 2pt 2pt 15pt;
+}
+
+.desc
+{
+    margin: 7pt 2pt 5pt 15pt;
+}
+
+.mainpic
+{
+    margin: 5pt 0pt;
+}
+
+hr
+{
+    margin: 15pt 7pt 5pt 7pt;
+}
+
+.footer p
+{
+    font-size: 7pt;
+    margin: 2pt 2pt 2pt 15pt;
+}
