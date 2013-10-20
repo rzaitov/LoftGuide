@@ -44,7 +44,11 @@
     <MtouchDebug>true</MtouchDebug>
     <ConsolePause>false</ConsolePause>
     <CodesignKey>iPhone Developer</CodesignKey>
-    <IpaPackageName />
+    <IpaPackageName>
+    </IpaPackageName>
+    <MtouchI18n>
+    </MtouchI18n>
+    <MtouchArch>ARMv7</MtouchArch>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|iPhone' ">
     <DebugType>full</DebugType>
@@ -55,7 +59,11 @@
     <CodesignKey>iPhone Developer</CodesignKey>
     <ConsolePause>false</ConsolePause>
     <BuildIpa>true</BuildIpa>
-    <IpaPackageName />
+    <IpaPackageName>
+    </IpaPackageName>
+    <MtouchI18n>
+    </MtouchI18n>
+    <MtouchArch>ARMv7</MtouchArch>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Ad-Hoc|iPhone' ">
     <DebugType>full</DebugType>
@@ -67,7 +75,8 @@
     <BuildIpa>true</BuildIpa>
     <ConsolePause>false</ConsolePause>
     <CodesignProvision>Automatic:AdHoc</CodesignProvision>
-    <IpaPackageName />
+    <IpaPackageName>
+    </IpaPackageName>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'AppStore|iPhone' ">
     <DebugType>full</DebugType>
@@ -79,7 +88,8 @@
     <ConsolePause>false</ConsolePause>
     <CodesignProvision>Automatic:AppStore</CodesignProvision>
     <BuildIpa>true</BuildIpa>
-    <IpaPackageName />
+    <IpaPackageName>
+    </IpaPackageName>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -154,5 +164,16 @@
     <BundleResource Include="Resources\ExibitInfos\css\style.css" />
     <BundleResource Include="Resources\ExibitInfos\img\binoculars.jpg" />
     <BundleResource Include="Resources\ExibitInfos\404.html" />
+    <BundleResource Include="Resources\ExibitInfos\img\kanagawa_greatwave.jpg" />
+    <BundleResource Include="Resources\ExibitInfos\img\kramskoy_woman.jpg" />
+    <BundleResource Include="Resources\ExibitInfos\img\munch_scream.jpg" />
+    <BundleResource Include="Resources\ExibitInfos\img\perov_dostoevskiy.jpg" />
+    <BundleResource Include="Resources\ExibitInfos\img\vangogh_starrynight.jpg" />
+    <BundleResource Include="Resources\ExibitInfos\kanagawa_greatwave.html" />
+    <BundleResource Include="Resources\ExibitInfos\kramskoy_woman.html" />
+    <BundleResource Include="Resources\ExibitInfos\munch_scream.html" />
+    <BundleResource Include="Resources\ExibitInfos\perov_dostoevskiy.html" />
+    <BundleResource Include="Resources\ExibitInfos\vangogh_starrynight.html" />
+    <BundleResource Include="Resources\ExibitInfos\css\main.css" />
   </ItemGroup>
 </Project>
